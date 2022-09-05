@@ -27,37 +27,35 @@ from bs4.element import Tag, NavigableString
 # ---------------------------------------------------
 
 
-# -----test スクレイピング---------------------------
+# -----googleを開く----------------------------------
 driver = webdriver.Chrome()
-driver.get("https://saigai.gsi.go.jp/jusho/download/")
+driver.get("https://www.google.co.jp")
 time.sleep(3)
 
 # HTML取得
-res = requests.get("https://saigai.gsi.go.jp/jusho/download/")
+res = requests.get("https://google.co.jp/")
 soup = BeautifulSoup(res.content, 'html.parser')
 
-# 都道府県を取得して配列に格納
-tofuken = []
-def parse_li(li):
-  for child in "li":
-    if type(child) == NavigableString:
-      tofuken.append(child.string)
-    elif type(child) == Tag:
-    # リスト構造ではない child のみ返り値に含める
-      if child.find_all('li') == []:
-        tofuken.append(child.get_text())
-  return ''.join(tofuken)
+# ログインしないで使うボタンを押す
+driver.find_elements_by_tag_bame('button')[0].click()
 
-# 各都道府県を押してデータ取ってくるループ
-for i in range(len(tofuken)):
-  try:
-    city = driver.find_element_by_link_text(tofuken[i])
-    city.click()
+# アカウントログイン
 
-  except:
-    pass
+# 検索条件を入力する欄を検索
+search_bar = driver.find_element_by_name("q")
+search_bar.send_keys("python")
+search_bar.submit()
+time.sleep(2)
 
-time.sleep(3)
+# Mapを開く
+driver.find_element_by_class_name('gb_Ue')[0].click()
+time.sleep(2)
+
+# リンク文字を取得して配列に格納
+link_string = []
+link_url = []
+link_string.append([url.get('String') for url in soup.find_all('a')])
+link_url.append([url.get('link') for url in soup.find_all('a')])
 # ---------------------------------------------------
 
 
