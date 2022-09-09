@@ -7,4 +7,11 @@ class TestScrapingSpider(scrapy.Spider):
     start_urls = ['https://scraping-for-beginner.herokuapp.com/ranking/']
 
     def parse(self, response):
+        title = response.css('h2::text').getall()
+        star = response.css("div.u_rankBox > span.evaluateNumber").getall()
+
+        yield {
+            'title': title,
+            'star': star
+        }
         pass

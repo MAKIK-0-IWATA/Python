@@ -1,0 +1,28 @@
+[
+  {
+    "title": [
+      "観光地 1",
+      "観光地 2",
+      "観光地 3",
+      "観光地 4",
+      "観光地 5",
+      "観光地 6",
+      "観光地 7",
+      "観光地 8",
+      "観光地 9",
+      "観光地 10"
+    ],
+    "star": [
+      "<span class=\"evaluateNumber\">4.7</span>",
+      "<span class=\"evaluateNumber\">4.7</span>",
+      "<span class=\"evaluateNumber\">4.6</span>",
+      "<span class=\"evaluateNumber\">4.5</span>",
+      "<span class=\"evaluateNumber\">4.5</span>",
+      "<span class=\"evaluateNumber\">4.4</span>",
+      "<span class=\"evaluateNumber\">4.3</span>",
+      "<span class=\"evaluateNumber\">4.3</span>",
+      "<span class=\"evaluateNumber\">4.2</span>",
+      "<span class=\"evaluateNumber\">4.1</span>"
+    ]
+  }
+]
