@@ -11,4 +11,8 @@ class MapscrapingItem(scrapy.Item):
     # name = scrapy.Field()
     title = scrapy.Field()
     star = scrapy.Field()
+
+    url = scrapy.Field()
+    user = scrapy.Field()
+
     pass
